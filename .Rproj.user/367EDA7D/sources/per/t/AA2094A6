@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1538966991591.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2831373487",
+    "id" : "AA2094A6",
+    "lastKnownWriteTime" : 1538958306,
+    "last_content_update" : 1538958306,
+    "path" : "C:/git/mpce-machine-learning/data_manip/mother_of_all_matrices.R",
+    "project_path" : "data_manip/mother_of_all_matrices.R",
+    "properties" : {
+        "cursorPosition" : "21,64",
+        "scrollLine" : "4"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

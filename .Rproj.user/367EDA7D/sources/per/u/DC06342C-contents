@@ -1,0 +1,29 @@
+# Use the matches found by dedupe to update the data.
+library(tidyverse)
+library(magrittr)
+
+# Estbalish connection to database
+library(RMySQL)
+manuscripts <- dbConnect(MySQL(), user="root", dbname="manuscripts", host="localhost")
+info_schema <- dbConnect(MySQL(), user="root", dbname="information_schema", host="localhost")
+
+# Get datasets to join
+banned <- manuscripts %>%
+  dbSendQuery("SELECT * FROM manuscript_titles_illegal") %>%
+  dbFetch(n = Inf) %>%
+  as_tibble()
+
+super_books <- manuscripts %>%
+  dbSendQuery("SELECT * FROM manuscript_books") %>%
+  dbFetch(n = Inf) %>%
+  as_tibble()
+
+new_super_books <- manuscripts %>%
+  dbSendQuery("SELECT * FROM manuscripts_add_books") %>%
+  dbFetch(n = Inf) %>%
+  as_tibble() %>%
+  select(-keywords, -parisian_keyword) # these columns are empty
+
+
+matched <- read_csv("data/dedupe_matches.csv")
+
